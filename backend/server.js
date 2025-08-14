@@ -8,7 +8,18 @@ const app = express();
 const PORT = 8080;
 
 app.use(express.json());
-app.use(cors());
+
+// CORS configuration to allow deployed frontend
+const corsOptions = {
+  origin: [
+    'http://localhost:5173', // Development frontend
+    'https://chatgpt-frontend-g0x4.onrender.com' // Deployed frontend
+  ],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 
 const connectDB = async ()=>{
   try{

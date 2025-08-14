@@ -190,12 +190,17 @@ GET /api/thread
 
 ## 📸 Screenshots / Demo
 
-> **⚠️ TODO: Add screenshots and demo link before publishing**
+## 🚀 Live Demo
+
+**Frontend:** [https://chatgpt-frontend-g0x4.onrender.com](https://chatgpt-frontend-g0x4.onrender.com)
+
+**Backend API:** [https://chatgpt-myf0.onrender.com](https://chatgpt-myf0.onrender.com)
+
+> **⚠️ TODO: Add screenshots before publishing**
 
 - [ ] Add screenshot of the main chat interface
 - [ ] Add screenshot of the sidebar with conversation history
 - [ ] Add screenshot of the responsive mobile design
-- [ ] Add link to live demo (after deployment)
 
 ## 📁 Folder Structure
 
