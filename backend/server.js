@@ -13,8 +13,7 @@ app.use(express.json());
 const corsOptions = {
   origin: [
     'http://localhost:5173', // Development frontend
-    'https://chatgpt-frontend-g0x4.onrender.com', // Previous frontend
-    'https://chatgpt-frontend-new.onrender.com' // New frontend (will update after deployment)
+    'https://chatgpt-frontend-qxx2.onrender.com' // Deployed frontend
   ],
   credentials: true,
   optionsSuccessStatus: 200

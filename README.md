@@ -141,7 +141,7 @@ A modern, full-stack ChatGPT clone built with React and Node.js that provides an
 
 ## 📡 API Endpoints Documentation
 
-### Base URL: `http://localhost:8080/api`
+### Base URL: `https://chatgpt-backend-xn1t.onrender.com/api`
 
 | Method | Endpoint | Description | Request Body | Response |
 |--------|----------|-------------|--------------|----------|
@@ -192,9 +192,9 @@ GET /api/thread
 
 ## 🚀 Live Demo
 
-**Frontend:** [https://chatgpt-frontend-g0x4.onrender.com](https://chatgpt-frontend-g0x4.onrender.com)
+**Frontend:** [https://chatgpt-frontend-qxx2.onrender.com](https://chatgpt-frontend-qxx2.onrender.com)
 
-**Backend API:** [https://chatgpt-myf0.onrender.com](https://chatgpt-myf0.onrender.com)
+**Backend API:** [https://chatgpt-backend-xn1t.onrender.com](https://chatgpt-backend-xn1t.onrender.com)
 
 > **⚠️ TODO: Add screenshots before publishing**
 
