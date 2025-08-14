@@ -18,7 +18,7 @@ function SideBar() {
 
   const getAllThreads = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/thread");
+      const response = await fetch("https://chatgpt-myf0.onrender.com/api/thread");
       const res = await response.json();
       const filteredData = res.map((thread) => ({
         threadId: thread.threadId,
@@ -48,7 +48,7 @@ function SideBar() {
     try {
       // console.log(newThreadId);
       const response = await fetch(
-        `http://localhost:8080/api/thread/${newThreadId}`
+        `https://chatgpt-myf0.onrender.com/api/thread/${newThreadId}`
       );
       const res = await response.json();
       console.log(res);
@@ -62,7 +62,7 @@ function SideBar() {
 
     const deleteThread = async (threadId) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/thread/${threadId}`, {method: "DELETE"});
+            const response = await fetch(`https://chatgpt-myf0.onrender.com/api/thread/${threadId}`, {method: "DELETE"});
             const res = await response.json();
             console.log(res);
 
