@@ -38,7 +38,7 @@ router.get("/thread/:threadId", async (req, res) => {
     const thread = await Thread.findOne({ threadId });
 
     if (!thread) {
-      res.status(404).json({ error: "Chat Not found" });
+      return res.status(404).json({ error: "Chat Not found" });
     }
 
     return res.json(thread.messages);
@@ -51,9 +51,9 @@ router.get("/thread/:threadId", async (req, res) => {
 router.delete("/thread/:threadId", async (req, res) => {
   const { threadId } = req.params;
   try {
-    const deletedThread = await Thread.findOneAndDelete(threadId);
-    if (!threadId) {
-      res
+    const deletedThread = await Thread.findOneAndDelete({ threadId });
+    if (!deletedThread) {
+      return res
         .status(404)
         .json({ error: "Thread not found Or was not Able to Delete" });
     }
@@ -67,7 +67,7 @@ router.delete("/thread/:threadId", async (req, res) => {
 router.post("/chat", async (req, res) => {
   const {threadId,message} = req.body;
   if(!threadId || !message){
-    res.status(400).json({error:"Missing required Fields"});
+    return res.status(400).json({error:"Missing required Fields"});
   }
   try {
     let thread = await Thread.findOne({threadId});
@@ -82,13 +82,16 @@ router.post("/chat", async (req, res) => {
         thread.messages.push({role:"user",content:message});
     }
     const asistantReply = await getOpenAIAPIResponse(message);
+    if (!asistantReply) {
+      return res.status(500).json({error:"Failed to get response from OpenAI"});
+    }
     thread.messages.push({role:"assistant",content:asistantReply});
     thread.updatedAt = new Date();
     await thread.save();
-    res.json({reply:asistantReply});
+    return res.json({reply:asistantReply});
   } catch (err) {
     console.log(err);
-    res.status(500).json({error:"Somethong went wrong"});
+    return res.status(500).json({error:"Something went wrong"});
   }
 });
 

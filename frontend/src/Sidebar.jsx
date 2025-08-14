@@ -19,15 +19,24 @@ function SideBar() {
   const getAllThreads = async () => {
     try {
       const response = await fetch("https://chatgpt-myf0.onrender.com/api/thread");
+      if (!response.ok) {
+        console.error('Failed to fetch threads:', response.status);
+        return;
+      }
       const res = await response.json();
-      const filteredData = res.map((thread) => ({
-        threadId: thread.threadId,
-        title: thread.title,
-      }));
-      //   console.log(filteredData);
-      setAllThreads(filteredData);
+      if (Array.isArray(res)) {
+        const filteredData = res.map((thread) => ({
+          threadId: thread.threadId,
+          title: thread.title,
+        }));
+        setAllThreads(filteredData);
+      } else {
+        console.error('Invalid response format:', res);
+        setAllThreads([]);
+      }
     } catch (err) {
-      console.log(err);
+      console.log('Error fetching threads:', err);
+      setAllThreads([]);
     }
   };
 
