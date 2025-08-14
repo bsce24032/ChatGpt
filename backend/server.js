@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 import chatRoutes from "./routes/chat.js";
 
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
 
@@ -13,7 +13,7 @@ app.use(express.json());
 const corsOptions = {
   origin: [
     'http://localhost:5173', // Development frontend
-    'https://chatgpt-frontend-g0x4.onrender.com' // Deployed frontend
+    'https://chatgpt-frontend-g0x4.onrender.com' // Deployed frontend (will update after deployment)
   ],
   credentials: true,
   optionsSuccessStatus: 200
